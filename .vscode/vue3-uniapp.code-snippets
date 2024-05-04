@@ -1,0 +1,17 @@
+{
+    "vue3 uniapp template": {
+        "scope": "vue",
+        "prefix": "vuni",
+        "body": [
+            "<script setup lang=\"ts\">",
+            "$2",
+            "</script>\n",
+            "<template>",
+            "\t<view class=\"\"></view>",
+            "</template>\n",
+            "<style lang=\"scss\"></style>",
+            "$2"
+        ],
+        "description": "Vue3 Uniapp Template"
+    }
+}
