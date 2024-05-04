@@ -1,6 +1,23 @@
 <script setup lang="ts">
 import localStorage from '@/utils/localStorage'
 import { ep } from '@/store'
+import { ref } from 'vue'
+import { onShow } from '@dcloudio/uni-app'
+
+interface Entrance {
+    index: number
+    percent: string
+}
+const entrances = ref<Entrance[]>([])
+
+onShow(() => {
+    entrances.value = new Array(52).fill(0).map((_, i) => {
+        return {
+            index: i + 1,
+            percent: getProgress(i + 1)
+        }
+    })
+})
 
 function getProgress(i: number) {
     const str = localStorage.getItem(`completedList-${i}`)
@@ -10,7 +27,7 @@ function getProgress(i: number) {
             (progressList.filter((x) => x).length / progressList.length) * 100
         return `${progress}%`
     } else {
-        return 0
+        return '0'
     }
 }
 
@@ -25,14 +42,14 @@ async function go(i: number) {
 <template>
     <view class="entrance-list">
         <button
-            v-for="i in 52"
+            v-for="(item, i) in entrances"
             :key="i"
             class="w-full btn btn-outline"
             plain
-            @click="go(i)"
+            @click="go(item.index)"
         >
-            <text>第 {{ String(i).padStart(2, '0') }} 集</text>
-            <text :style="{ width: getProgress(i) }"></text>
+            <text>第 {{ String(item.index).padStart(2, '0') }} 集</text>
+            <text :style="{ width: item.percent }"></text>
         </button>
     </view>
 </template>
