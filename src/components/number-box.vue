@@ -62,7 +62,7 @@
  */
 
 export default {
-    name: 'UniNumberBox',
+    name: 'NumberBox',
     emits: ['change', 'input', 'update:modelValue', 'blur', 'focus'],
     props: {
         value: {
