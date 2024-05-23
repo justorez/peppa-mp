@@ -1,6 +1,6 @@
 # 挑战 52 天背完小猪佩奇小程序版
 
-网站链接：[Github Page](https://justorez.github.io/peppa/)
+网站链接：[GitHub Page](https://justorez.github.io/peppa/)
 
 <p align="left">
  <img src="./resource/qrcode.jpg" width="220"/>
